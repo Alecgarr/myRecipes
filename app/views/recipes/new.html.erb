@@ -2,6 +2,19 @@
     <h1>Create a new Recipe</h1>
     <hr/>
 </p>
+<% if @recipe.errors.any? %>
+    <div class="row">
+        <div class="alert alert-danger col-md-8 col-md-offset-2">
+            <h5>Please Correct the following Errors</h5>
+            <ul>
+                <% @recipe.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            <a class="close" data-dismiss="alert">&#215;</a>
+        </div>
+    </div>
+    <% end %>
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
        <%= form_for @recipe do |f| %>
